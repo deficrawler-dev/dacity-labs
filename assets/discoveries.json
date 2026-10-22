@@ -1,0 +1,132 @@
+[
+  {
+    "id": "dacity-detail",
+    "title": "The DacityCoin detail",
+    "category": "Brands",
+    "image": "plane.webp",
+    "status": "Reported reference",
+    "kicker": "BRANDS / AVIATION",
+    "summary": "A name on a pink stunt plane sparked a bigger conversation. Separate the fictional reference from real-world tokens.",
+    "body": [
+      "Reporting describes DacityCoin branding on a stunt plane in the GTA VI launch trailer. The reference has attracted attention from independent crypto communities.",
+      "A fictional brand appearing in game material does not establish a relationship between Rockstar Games and a separately issued token. Dacity Labs is also independent.",
+      "This file tracks the reported reference. The artwork here was created for Dacity Labs; it is not a frame from the trailer. Watch the original material and read the reporting before drawing conclusions."
+    ],
+    "question": "How much of the fictional brand\u2019s story will players encounter? That remains an open question.",
+    "sources": [
+      {
+        "label": "Rockstar Games \u2014 official media hub",
+        "url": "https://www.rockstargames.com/VI/"
+      },
+      {
+        "label": "Decrypt \u2014 reporting on the Dacity reference",
+        "url": "https://decrypt.co/381511/gta-6-trailer-features-dacity-meme-coin-heres-what-traders-think-itll-do"
+      }
+    ]
+  },
+  {
+    "id": "leonida",
+    "title": "A world called Leonida",
+    "category": "Places",
+    "image": "coast.webp",
+    "status": "Official source",
+    "kicker": "PLACES / WORLD",
+    "summary": "The official story stretches across Leonida. Start with the setting, then follow the details.",
+    "body": [
+      "Rockstar\u2019s official GTA VI website describes a criminal conspiracy stretching across the state of Leonida. Vice City is part of the story\u2019s setting.",
+      "That description gives us a starting point for a source-led archive: distinguish named places in official material from guesses about the map.",
+      "The coastline artwork shown here is original concept art. Its buildings, roads, and islands are illustrative and do not map confirmed game geography."
+    ],
+    "question": "Which locations connect the story? We will add individual place files when supporting sources are available.",
+    "sources": [
+      {
+        "label": "Rockstar Games \u2014 GTA VI",
+        "url": "https://www.rockstargames.com/VI/"
+      }
+    ]
+  },
+  {
+    "id": "trailer-library",
+    "title": "Start with the original footage",
+    "category": "Media",
+    "image": "hero-desktop.webp",
+    "status": "Official source",
+    "kicker": "MEDIA / WATCHLIST",
+    "summary": "The best place to investigate a detail is the source. Keep the official trailer library within reach.",
+    "body": [
+      "The official GTA VI site provides a media collection including Trailer 1, Trailer 2, An Extended Look, and the Launch Trailer.",
+      "Use the original footage when checking observations. A screenshot needs context: a visible detail may tell us less than a community theory suggests.",
+      "Our archive links out to sources rather than presenting generated artwork as evidence. Direct timestamps and supporting frames can be added as files are researched."
+    ],
+    "question": "What can you identify in the source itself, and what requires an assumption?",
+    "sources": [
+      {
+        "label": "Rockstar Games \u2014 official videos and media",
+        "url": "https://www.rockstargames.com/VI/"
+      }
+    ]
+  },
+  {
+    "id": "jason-lucia",
+    "title": "Two people. One complicated story.",
+    "category": "Culture",
+    "image": "workbench.webp",
+    "status": "Official source",
+    "kicker": "CULTURE / STORY",
+    "summary": "Jason and Lucia sit at the center of Rockstar\u2019s official premise. Keep the story grounded in what is published.",
+    "body": [
+      "The official premise follows Jason and Lucia after an apparently easy score goes wrong. Rockstar describes the pair relying on each other amid a conspiracy across Leonida.",
+      "This is a short source note, not a mission guide or a claim about unannounced mechanics. Future story observations should link back to the material they come from.",
+      "The research-room artwork is an illustration for this archive and does not depict a location from the game."
+    ],
+    "question": "How will their perspectives shape the world we see? That is a topic for discussion, not a confirmed gameplay claim.",
+    "sources": [
+      {
+        "label": "Rockstar Games \u2014 official story premise",
+        "url": "https://www.rockstargames.com/VI/"
+      }
+    ]
+  },
+  {
+    "id": "music",
+    "title": "Listen to the world",
+    "category": "Culture",
+    "image": "coast.webp",
+    "status": "Official source",
+    "kicker": "CULTURE / SOUND",
+    "summary": "Music is another way into the setting. Follow the official music collection and keep speculation separate.",
+    "body": [
+      "Rockstar\u2019s official GTA VI website includes a section for in-game radio and music. It links to music material from the publisher.",
+      "This archive entry is a doorway to that source, not an independently verified track list. No unannounced artists or tracks are asserted here.",
+      "The image is original coastal concept art, used to set the mood rather than document a particular game location."
+    ],
+    "question": "What can sound tell us about a place before we explore it?",
+    "sources": [
+      {
+        "label": "Rockstar Games \u2014 music and media links",
+        "url": "https://www.rockstargames.com/VI/"
+      }
+    ]
+  },
+  {
+    "id": "archive-method",
+    "title": "An observation is not an answer",
+    "category": "Research",
+    "image": "map.svg",
+    "status": "Lab note",
+    "kicker": "RESEARCH / METHOD",
+    "summary": "Every file should make its evidence, interpretation, and unanswered questions easy to distinguish.",
+    "body": [
+      "Our archive uses three simple layers: the source, what it directly supports, and the questions that remain. This is the method we want every future file to follow.",
+      "Official source means the linked publisher material supports the short factual note. Reported reference means we are relying on an attributed report. Lab note means a Dacity Labs editorial or product note.",
+      "Artwork is labeled separately from evidence. The concept map here is a navigation illustration, not a leaked or reconstructed game map."
+    ],
+    "question": "Have a stronger source for a file? Keep its exact URL and timestamp so it can be reviewed.",
+    "sources": [
+      {
+        "label": "Explore the official source material",
+        "url": "https://www.rockstargames.com/VI/"
+      }
+    ]
+  }
+]
