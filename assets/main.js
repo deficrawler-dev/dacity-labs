@@ -1,11 +1,13 @@
 'use strict';
 (() => {
   const config=window.DACITY_CONFIG||{};
-  // Keep the homepage URL clean, including when opened from an older link.
-  if (/^https?:$/.test(location.protocol) && /\/index\.html$/.test(location.pathname) && window.history?.replaceState) {
-    window.history.replaceState(window.history.state, '', location.pathname.replace(/index\.html$/, '') + (location.search || '') + (location.hash || ''));
+  // Serve real directory pages so clean URLs also work on refresh and direct visits.
+  const legacyRoutes = {"/index.html": "/", "/discoveries.html": "/discoveries/", "/lab.html": "/lab/", "/build-log.html": "/build-log/", "/token.html": "/token/", "/flight-mode.html": "/flight-mode/", "/file-trailer-library.html": "/discoveries/trailer-library/", "/file-jason-lucia.html": "/discoveries/jason-lucia/", "/file-archive-method.html": "/discoveries/archive-method/", "/file-music.html": "/discoveries/music/", "/file-dacity-detail.html": "/discoveries/dacity-detail/", "/file-leonida.html": "/discoveries/leonida/"};
+  const oldPath = location.pathname;
+  const cleanPath = legacyRoutes[oldPath] || (oldPath.endsWith('/index.html') ? oldPath.slice(0,-10) : null);
+  if (/^https?:$/.test(location.protocol) && cleanPath && cleanPath !== oldPath && typeof location.replace === 'function') {
+    location.replace(cleanPath + (location.search || '') + (location.hash || ''));
   }
-
   const toastEl=document.querySelector('.toast');let toastTimer;
   const notify=message=>{if(!toastEl)return;toastEl.textContent=message;toastEl.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toastEl.classList.remove('show'),3000);};
   function readStorage(key,fallback){try{const v=localStorage.getItem(key);return v===null?fallback:JSON.parse(v);}catch{return fallback;}}
@@ -54,7 +56,7 @@
     window.addEventListener('pageshow',()=>closeMenu());
   }
   document.querySelectorAll('.year').forEach(el=>el.textContent=new Date().getFullYear());
-  document.querySelectorAll('[data-copy-link]').forEach(button=>button.addEventListener('click',async()=>{let url=location.href;if(location.protocol==='file:'&&config.canonicalOrigin)url=config.canonicalOrigin.replace(/\/$/,'')+'/'+location.pathname.split('/').pop();if(await copy(url))notify('File link copied.');}));
+  document.querySelectorAll('[data-copy-link]').forEach(button=>button.addEventListener('click',async()=>{let url=location.href;if(location.protocol==='file:'&&config.canonicalOrigin)url=document.querySelector('link[rel="canonical"]')?.href || config.canonicalOrigin.replace(/\/$/,'')+'/'+location.pathname.split('/').pop();if(await copy(url))notify('File link copied.');}));
   document.querySelectorAll('[data-config]').forEach(el=>{const value=config[el.dataset.config];if(typeof value==='string'&&value.trim())el.textContent=value;});
   const contract=config.contractAddress?.trim(),contractEl=document.getElementById('contract-value'),contractButton=document.getElementById('copy-contract');
   if(contract&&contractEl&&contractButton){contractEl.textContent=contract;contractButton.hidden=false;contractButton.addEventListener('click',async()=>{if(await copy(contract))notify('Contract address copied.');});}

@@ -6,7 +6,7 @@
  const scoreLabel=document.getElementById('flight-score'),bestLabel=document.getElementById('flight-best');
  let W=1000,H=560,state='idle',y=H/2,score=0,gates=[],elapsed=0,spawnIn=1,last=0,frame=0,target=null,holding=false;
  let best=window.Dacity.readStorage('dacity-flight-best',0);if(!Number.isSafeInteger(best)||best<0)best=0;bestLabel.textContent=best;
- const keys=new Set();const background=new Image();background.src='assets/hero-desktop.webp';background.onload=()=>{if(state!=='running')draw();};
+ const keys=new Set();const background=new Image();background.src='/assets/hero-desktop.webp';background.onload=()=>{if(state!=='running')draw();};
  function fit(){const rect=canvas.getBoundingClientRect();const oldH=H;H=Math.max(450,Math.round(W*rect.height/Math.max(rect.width,1)));canvas.width=W;canvas.height=H;y=y/oldH*H;gates.forEach(g=>{g.center=g.center/oldH*H;g.gap=g.gap/oldH*H;});if(state==='running')pause();draw();}
  const resize=new ResizeObserver(fit);resize.observe(canvas);
  function draw(){
@@ -34,5 +34,5 @@
  canvas.addEventListener('pointerdown',event=>{if(state!=='running'||!event.isPrimary)return;event.preventDefault();holding=true;targetFrom(event);canvas.setPointerCapture(event.pointerId);});canvas.addEventListener('pointermove',event=>{if(holding&&state==='running')targetFrom(event);});
  function release(){holding=false;target=null;}canvas.addEventListener('pointerup',release);canvas.addEventListener('pointercancel',release);canvas.addEventListener('lostpointercapture',release);
  document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();});window.addEventListener('blur',()=>{keys.clear();pause();});
- document.getElementById('share-flight').addEventListener('click',async()=>{const origin=window.DACITY_CONFIG?.canonicalOrigin||location.origin;const text='My Flight Mode personal best: '+best+' gates. Try the Dacity Labs browser prototype: '+origin.replace(/\/$/,'')+'/flight-mode.html';if(await window.Dacity.copy(text))window.Dacity.notify('Score copied.');});fit();
+ document.getElementById('share-flight').addEventListener('click',async()=>{const origin=window.DACITY_CONFIG?.canonicalOrigin||location.origin;const text='My Flight Mode personal best: '+best+' gates. Try the Dacity Labs browser prototype: '+origin.replace(/\/$/,'')+'/flight-mode/';if(await window.Dacity.copy(text))window.Dacity.notify('Score copied.');});fit();
 })();
