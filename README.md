@@ -31,3 +31,10 @@ Bookmarks and personal best scores use browser localStorage. They are not shared
 All visual art is original concept illustration. It is not a game screenshot or a reconstruction of official map geography. Source URLs are inside individual files. The Dacity observation is labeled as reported; other short notes cite Rockstar's official site. Archive seed data also lives in `assets/discoveries.json` for reference; pages are static HTML and editing the JSON alone will not update their text.
 
 This is an independent project, not affiliated with Rockstar Games, Take-Two Interactive, or Dacity Coin.
+
+## Header and menu update
+The homepage and Lab headers now overlay their hero artwork with a black top gradient. The homepage badge has been removed. Hero buttons share a row on mobile. Desktop navigation includes the X icon; mobile navigation has an edge-to-edge black panel, large menu links without dividers, a low-opacity vector airplane, and @dacitylabs. Menu Escape, focus looping, background scroll locking, and resize cleanup are included.
+
+Upload the whole extracted package into the same repository root, replacing matching files and merging the assets folder. Every HTML page changed because the navigation is shared. No DNS changes are needed. Cache revision parameters are included for the updated styles and navigation code.
+
+Validation: local link and asset checks; JavaScript syntax checks; interaction logic tested in a DOM harness, including menu open/close and scroll restoration. Visual testing in a real browser remains outstanding in this environment.

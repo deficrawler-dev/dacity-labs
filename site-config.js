@@ -2,6 +2,6 @@
 window.DACITY_CONFIG = {
   projectName: 'Dacity Labs', ticker: 'DLABS', network: 'Solana',
   launchStatus: 'Not announced', contractAddress: '', buyUrl: '',
-  xUrl: '', telegramUrl: '', githubUrl: '',
+  xUrl: 'https://x.com/dacitylabs', telegramUrl: '', githubUrl: '',
   canonicalOrigin: 'https://dacitylabs.fun'
 };
