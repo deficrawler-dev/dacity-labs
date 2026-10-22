@@ -1,0 +1,12 @@
+DL logo and favicon update
+
+Extract this ZIP and upload ALL its contents to the root of your existing dacity-labs repository. Replace matching HTML and CSS files and merge folders. The package contains only changed pages and stylesheet.
+
+Keep your existing dl-logo.png at the root and assets/favicon.ico. These exact uploaded files are referenced on every page. Do not move them. No logo image or favicon needs re-uploading.
+
+The new DL image replaces the old letter mark in the header, mobile-menu header, footer, and token card. The uploaded image is rendered directly; CSS blending lets the black background blend into the dark page. Browser favicon links now reference the uploaded ICO with a fresh cache version. Clean URLs, page content and token configuration are preserved.
+
+After deployment, hard-refresh the page. If a browser still displays its cached old favicon, close and reopen the tab.
+
+Checks: all 23 pages checked for the new logo and favicon paths, removal of old mark and preservation of page text. Visual browser testing remains outstanding.
+
