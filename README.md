@@ -38,3 +38,6 @@ The homepage and Lab headers now overlay their hero artwork with a black top gra
 Upload the whole extracted package into the same repository root, replacing matching files and merging the assets folder. Every HTML page changed because the navigation is shared. No DNS changes are needed. Cache revision parameters are included for the updated styles and navigation code.
 
 Validation: local link and asset checks; JavaScript syntax checks; interaction logic tested in a DOM harness, including menu open/close and scroll restoration. Visual testing in a real browser remains outstanding in this environment.
+
+## Clean homepage URL update
+Home links use the site root. Opening an older /index.html link automatically removes that filename from the address bar while preserving query parameters and fragments. Keep index.html in the repository: it remains the homepage file. Other page URLs are unchanged.

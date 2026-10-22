@@ -1,6 +1,11 @@
 'use strict';
 (() => {
   const config=window.DACITY_CONFIG||{};
+  // Keep the homepage URL clean, including when opened from an older link.
+  if (/^https?:$/.test(location.protocol) && /\/index\.html$/.test(location.pathname) && window.history?.replaceState) {
+    window.history.replaceState(window.history.state, '', location.pathname.replace(/index\.html$/, '') + (location.search || '') + (location.hash || ''));
+  }
+
   const toastEl=document.querySelector('.toast');let toastTimer;
   const notify=message=>{if(!toastEl)return;toastEl.textContent=message;toastEl.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toastEl.classList.remove('show'),3000);};
   function readStorage(key,fallback){try{const v=localStorage.getItem(key);return v===null?fallback:JSON.parse(v);}catch{return fallback;}}
