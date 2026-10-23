@@ -46,7 +46,7 @@
       if(menu.hidden)return;
       if(e.key==='Escape'){e.preventDefault();closeMenu(true);return;}
       if(e.key==='Tab'){
-        const focusable=[document.querySelector('.nav-row .brand'),toggle,...menu.querySelectorAll('a')].filter(Boolean);
+        const focusable=[document.querySelector('[data-copy-ca]:not(:disabled)'),document.querySelector('.nav-row .brand'),toggle,...menu.querySelectorAll('a')].filter(Boolean);
         const first=focusable[0],last=focusable[focusable.length-1];
         if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
         else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
@@ -60,8 +60,17 @@
   document.querySelectorAll('[data-config]').forEach(el=>{const value=config[el.dataset.config];if(typeof value==='string'&&value.trim())el.textContent=value;});
   const contract=config.contractAddress?.trim(),contractEl=document.getElementById('contract-value'),contractButton=document.getElementById('copy-contract');
   if(contract&&contractEl&&contractButton){contractEl.textContent=contract;contractButton.hidden=false;contractButton.addEventListener('click',async()=>{if(await copy(contract))notify('Contract address copied.');});}
+  document.querySelectorAll('[data-copy-ca]').forEach(button=>{
+    const display=button.querySelector('[data-ca-display]'),action=button.querySelector('[data-ca-action]');
+    if(!contract){button.disabled=true;return;}
+    button.disabled=false;button.setAttribute('aria-label','Copy token contract address');
+    if(display){display.textContent=contract.slice(0,6)+'…'+contract.slice(-6);display.title=contract;}
+    if(action)action.textContent='Copy CA ↗';
+    button.addEventListener('click',async()=>{if(await copy(contract)){notify('Contract address copied.');if(action)action.textContent='Copied ✓';setTimeout(()=>{if(action)action.textContent='Copy CA ↗';},2000);}});
+  });
   function safeUrl(value){try{const u=new URL(value);return u.protocol==='https:'?u.href:null;}catch{return null;}}
   const buy=document.getElementById('buy-token');if(buy&&safeUrl(config.buyUrl)){buy.href=safeUrl(config.buyUrl);buy.target='_blank';buy.rel='noopener noreferrer';buy.hidden=false;}
   const socials=document.getElementById('community-links');if(socials){for(const [key,label] of [['xUrl','X'],['telegramUrl','Telegram'],['githubUrl','GitHub']]){const url=safeUrl(config[key]);if(!url)continue;const link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener noreferrer';link.className='button outline';link.textContent=label+' ↗';socials.append(link);}if(socials.childElementCount)document.getElementById('community-message').textContent='Project links configured by Dacity Labs:';}
   const projectFilters=document.querySelectorAll('[data-project-filter]');projectFilters.forEach(button=>button.addEventListener('click',()=>{const type=button.dataset.projectFilter;projectFilters.forEach(b=>{const active=b===button;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});document.querySelectorAll('[data-project-type]').forEach(card=>card.hidden=type!=='All'&&card.dataset.projectType!==type);}));
 })();
+

@@ -76,3 +76,19 @@ body.menu-open{position:fixed;top:var(--menu-scroll-top,0);left:0;right:0;width:
 .token-symbol-dl>img{position:absolute;left:50%;top:50%;width:220px;height:220px;max-width:none;object-fit:contain;transform:translate(-50%,-50%);mix-blend-mode:screen}
 @media(max-width:640px){.brand-mark{width:48px;height:37px}.brand-mark>img{width:66px;height:66px}.site-footer .brand-mark{width:42px;height:32px}.site-footer .brand-mark>img{width:57px;height:57px}.token-symbol.token-symbol-dl{width:145px;height:115px}.token-symbol-dl>img{width:190px;height:190px}}
 
+
+
+/* New launch: compact contract bar above the mobile header. */
+.mobile-ca-bar{display:none}
+@media(max-width:640px){
+ .mobile-ca-bar{display:block;position:relative;z-index:43;background:linear-gradient(180deg,#000f,#000b);padding:5px 20px}
+ .mobile-ca-copy{width:100%;min-height:28px;display:flex;align-items:center;gap:8px;border:0;padding:0;background:none;color:#f5f0e7;font:11px Arial,sans-serif;letter-spacing:.2px;text-align:left}
+ .mobile-ca-copy:disabled{opacity:1;color:#a6b0b5}
+ .mobile-ca-label{font-weight:700;color:var(--pink)}
+ [data-ca-display]{font-family:monospace;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ [data-ca-action]{margin-left:auto;font-size:10px;color:var(--pink);white-space:nowrap}
+ .site-header.menu-open .mobile-ca-bar{background:#020303}
+ .site-header .mobile-nav{padding-top:145px}
+ .token-card h2{overflow-wrap:anywhere}
+}
+@media(max-width:640px) and (max-height:560px){.site-header .mobile-nav{padding-top:120px}}
